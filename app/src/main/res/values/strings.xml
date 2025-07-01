@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WiFiSync</string>
+    <string name="fetched_new_data">Fetched New Data</string>
+    <string name="showing_old_data">Showing Old Data</string>
+    <string name="no_data_available">No Data Available!</string>
+    <string name="fetching_users">Fetching users</string>
+    <string name="calling_user_api_in_background">Calling user API in background…</string>
+    <string name="user_fetch_channel">user_fetch_channel</string>
+</resources>
