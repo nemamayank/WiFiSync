@@ -1,4 +1,4 @@
-package com.mayank.wifisync.presentation.ui
+package com.mayank.wifisync.presentation.ui.screen
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement

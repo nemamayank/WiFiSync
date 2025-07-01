@@ -8,7 +8,7 @@ import com.mayank.wifisync.data.local.UserDao
 import com.mayank.wifisync.data.remote.ApiService
 import com.mayank.wifisync.data.remote.toUser
 import com.mayank.wifisync.domain.repository.UserRepository
-import com.mayank.wifisync.presentation.ui.ApiResult
+import com.mayank.wifisync.presentation.ui.state.ApiResult
 import com.mayank.wifisync.utils.TimeUtils.isDataStaled
 import com.mayank.wifisync.utils.TimeUtils.now
 import com.mayank.wifisync.utils.WiFiMonitor.isWifiConnected

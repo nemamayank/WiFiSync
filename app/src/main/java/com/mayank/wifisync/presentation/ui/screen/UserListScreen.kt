@@ -1,4 +1,4 @@
-package com.mayank.wifisync.presentation.ui
+package com.mayank.wifisync.presentation.ui.screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mayank.wifisync.R
 import com.mayank.wifisync.data.local.User
+import com.mayank.wifisync.presentation.ui.state.ApiResult
 import com.mayank.wifisync.presentation.viewmodel.UserViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

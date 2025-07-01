@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.mayank.wifisync.domain.usecase.GetUsersUseCase
-import com.mayank.wifisync.presentation.ui.ApiResult
+import com.mayank.wifisync.presentation.ui.state.ApiResult
 import com.mayank.wifisync.utils.WiFiMonitor.isWifiConnected
 import kotlinx.coroutines.delay
 import org.koin.core.component.KoinComponent

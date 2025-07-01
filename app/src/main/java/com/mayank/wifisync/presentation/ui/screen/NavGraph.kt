@@ -1,4 +1,4 @@
-package com.mayank.wifisync.presentation.ui
+package com.mayank.wifisync.presentation.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

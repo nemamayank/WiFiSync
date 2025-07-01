@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import androidx.work.WorkerParameters
-import com.mayank.wifisync.presentation.ui.ApiResult
+import com.mayank.wifisync.presentation.ui.state.ApiResult
 import com.mayank.wifisync.data.local.User
 import com.mayank.wifisync.data.repository.UserRepositoryImpl
 import com.mayank.wifisync.data.infrastructure.FetchUserWorker
