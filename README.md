@@ -19,32 +19,49 @@ This project demonstrates how to:
 
 ## 🧾 Folder Structure (Clean Architecture)
 ```bash
+
 .
-├── data
-│   ├── local          # Room DB, DAO
-│   ├── remote         # API service layer
-│   └── repository     # UserRepositoryImpl
-├── domain
-│   ├── model          # Business models
-│   ├── repository     # Abstract repository interface
-│   └── usecase        # Optional: Use cases for business logic
-├── presentation
-│   ├── ui
-│   │   ├── MainActivity.kt
+├── data                            # Handles all data sources (local DB, remote APIs, workers)
+│   ├── infrastructure              # Workers, broadcast receivers, and background components
+│   │   ├── FetchUserWorker.kt
+│   │   ├── ScheduleUserWorker.kt
+│   │   └── WifiStateReceiver.kt
+│   ├── local                       # Room database setup and entities
+│   │   ├── AppDatabase.kt
+│   │   ├── User.kt
+│   │   └── UserDao.kt
+│   ├── remote                      # Network layer (Retrofit API and models)
+│   │   ├── ApiResponse.kt
+│   │   ├── ApiService.kt
+│   │   ├── UserDto.kt
+│   │   └── UserMapper.kt
+│   └── repository                  # Repository implementation
+│       └── UserRepositoryImpl.kt
+├── di                              # Dependency Injection configuration
+│   └── AppModule.kt
+├── domain                          # Business logic layer (interfaces and use cases)
+│   ├── repository                  # Repository abstractions
+│   │   └── UserRepository.kt
+│   └── usecase                     # Use cases representing app logic
+│       └── GetUsersUseCase.kt
+├── presentation                    # UI layer (Jetpack Compose-based)
+│   ├── theme                       # Compose theming (colors, typography, etc.)
+│   ├── ui                          # Composable screens and navigation
 │   │   └── screen
-│   │       ├── UserListScreen.kt
-│   │       └── UserDetailScreen.kt
-│   ├── navigation
-│   │   ├── Screen.kt
-│   │   └── NavGraph.kt
-│   └── state
-│       └── ApiResult.kt
-├── worker
-│   └── UserSyncWorker.kt
-├── network
+│   │       ├── NavGraph.kt
+│   │       ├── Screen.kt
+│   │       ├── UserDetailScreen.kt
+│   │       └── UserListScreen.kt
+│   ├── state                       # UI state/result wrappers
+│   │   └── ApiResult.kt
+│   ├── viewmodel                   # ViewModel for UI state handling
+│   │   └── UserViewModel.kt
+│   └── MainActivity.kt
+├── utils                            # Utility classes and helpers
+│   ├── TimeUtils.kt
 │   └── WiFiMonitor.kt
-└── receiver
-    └── WifiStateReceiver.kt
+└── MyApplication.kt                # Custom Application class (initial setup)
+
 
 ````
 
