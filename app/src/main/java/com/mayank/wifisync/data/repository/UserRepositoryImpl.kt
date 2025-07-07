@@ -24,12 +24,17 @@ class UserRepositoryImpl(
     private val context: Context
 ) : UserRepository {
     lateinit var fetchedUser: User
-    companion object { const val DATA_EXPIRY_TIME = 60 * 60 * 1000L } // 60 min
+
+    companion object {
+        const val DATA_EXPIRY_TIME = 60 * 60 * 1000L // 60 min
+    }
+
     override fun getUsers(): Flow<ApiResult<List<User>>> = flow {
         emit(ApiResult.Loading)
         try {
             userDao.getAll().collect { localUsers ->
-                val shouldRefresh = localUsers.isEmpty() || isDataStaled(localUsers, DATA_EXPIRY_TIME)
+                val shouldRefresh =
+                    localUsers.isEmpty() || isDataStaled(localUsers, DATA_EXPIRY_TIME)
                 if (shouldRefresh && isWifiConnected(context)) {
                     Log.d("Repository", "ShouldRefresh: Calling Api...")
                     refreshUsers()
@@ -66,7 +71,7 @@ class UserRepositoryImpl(
                 .mapNotNull { it.toUser(fetchedAt = now) }
 
             userDao.updateAll(dbUsers)
-            Log.d("Repository","API Called: Original: ${apiList.size}, Inserted: ${dbUsers.size}")
+            Log.d("Repository", "API Called: Original: ${apiList.size}, Inserted: ${dbUsers.size}")
             ApiResult.Success(dbUsers, context.getString(R.string.fetched_new_data))
         } catch (e: Exception) {
             Log.d("Repository", "API Exception: ${e.message}")

@@ -10,14 +10,13 @@ import com.mayank.wifisync.utils.WiFiMonitor.isWifiConnected
 import kotlinx.coroutines.delay
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import androidx.work.ListenableWorker.Result as WorkResult
 
-class  FetchUserWorker(
+class FetchUserWorker(
     private val context: Context,
     workerParams: WorkerParameters,
 ) : CoroutineWorker(context, workerParams), KoinComponent {
     private val retryDelays = listOf(1, 2, 4)
-    private val usersUseCase:GetUsersUseCase by inject()
+    private val usersUseCase: GetUsersUseCase by inject()
 
     override suspend fun doWork(): Result {
         if (!isWifiConnected(context)) {
