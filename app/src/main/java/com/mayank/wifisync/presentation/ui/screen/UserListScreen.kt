@@ -44,8 +44,7 @@ import com.mayank.wifisync.presentation.viewmodel.UserViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserListScreen(
-    userViewModel: UserViewModel,
-    onUserClick: (User) -> Unit
+    userViewModel: UserViewModel, onUserClick: (User) -> Unit
 ) {
     val uiState by userViewModel.usersState.collectAsState()
 
@@ -64,8 +63,7 @@ fun UserListScreen(
                         fontStyle = FontStyle.Normal,
                         color = Color.White
                     )
-                },
-                navigationIcon = {
+                }, navigationIcon = {
                     IconButton(onClick = { }) {
                         Icon(
                             imageVector = Icons.Default.Person,
@@ -73,13 +71,11 @@ fun UserListScreen(
                             tint = Color.White
                         )
                     }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
+                }, colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = colorResource(id = R.color.purple_500)
                 )
             )
-        }
-    ) { paddingValues ->
+        }) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
@@ -95,8 +91,7 @@ fun UserListScreen(
 
                 is ApiResult.Error -> {
                     Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
+                        modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = (uiState as ApiResult.Error).message,
@@ -141,8 +136,7 @@ fun UserListScreen(
                                                 userViewModel.selectUser(user)
                                                 onUserClick(user)
                                             }
-                                            .padding(horizontal = 4.dp)
-                                    ) {
+                                            .padding(horizontal = 4.dp)) {
                                         Column(modifier = Modifier.padding(16.dp)) {
                                             Text(
                                                 text = "${user.firstName} ${user.lastName}",

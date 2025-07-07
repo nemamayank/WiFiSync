@@ -100,7 +100,10 @@ fun UserDetailScreen(userViewModel: UserViewModel, navController: NavController)
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text("OOP's! User details not found!", style = MaterialTheme.typography.headlineMedium)
+                    Text(
+                        "OOP's! User details not found!",
+                        style = MaterialTheme.typography.headlineMedium
+                    )
                 }
             } else {
                 AnimatedVisibility(visible = visible) {
